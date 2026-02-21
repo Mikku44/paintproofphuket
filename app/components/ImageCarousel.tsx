@@ -48,12 +48,12 @@ export default function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
       </AnimatePresence>
 
       {/* Controls */}
-      <div className="absolute bottom-10 left-10 flex gap-2 z-20">
+      <div className="">
         <Button
           variant="outline"
           size="icon"
           onClick={handlePrev}
-          className="rounded-full bg-black/20 border-white/20 text-white hover:bg-white/20"
+          className="rounded-full bg-black/20 border-white/20 absolute bottom-1/2 left-10 flex gap-2 z-20 text-white hover:bg-white/20"
         >
           <ChevronLeft className="h-6 w-6" />
         </Button>
@@ -61,7 +61,7 @@ export default function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
           variant="outline"
           size="icon"
           onClick={handleNext}
-          className="rounded-full bg-black/20 border-white/20 text-white hover:bg-white/20"
+          className="rounded-full bg-black/20 border-white/20 absolute bottom-1/2 right-10 flex gap-2 z-20 text-white hover:bg-white/20"
         >
           <ChevronRight className="h-6 w-6" />
         </Button>

@@ -1,21 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Facebook, Mail, Menu, Phone, X } from "lucide-react";
+import { Facebook, Mail, Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
+  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
+  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { APP_MENU } from "../const/app";
 import { DialogTitle } from "@/components/ui/dialog";
-
-
+import Link from "next/link";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -23,153 +22,175 @@ export default function Navbar() {
   const contactLinks = [
     {
       name: "Facebook",
-      icon: <Facebook className="size-5" />,
+      icon: <Facebook className="size-4" />,
       href: "https://www.facebook.com/Waterproofphuket",
-      color: "bg-[#1877F2]",
-      label: "Facebook Page"
+      label: "Facebook Page",
     },
     {
       name: "Email",
-      icon: <Mail className="size-5" />,
+      icon: <Mail className="size-4" />,
       href: "mailto:paintproof.office@gmail.com",
-      color: "bg-red-500",
-      label: "Email"
+      label: "Email",
     },
     {
       name: "Phone",
-      icon: <Phone className="size-5" />,
+      icon: <Phone className="size-4" />,
       href: "tel:0809699965",
-      color: "bg-green-500",
-      label: "080-969-9965"
+      label: "080-969-9965",
     },
   ];
 
   return (
-    <header className="w-full sticky top-0 z-50 border-b border-blue-800/30 bg-gray-800 shadow-lg shadow-blue-900/20">
-     {/* top navbar */}
-     <section className="w-full bg-slate-900 h-10 border-b border-slate-800 flex items-center ">
-      <div className="container-x w-full mx-auto  flex justify-end items-center h-full">
-        
-        {/* Contact Info (Left Side) */}
-        <div className="flex items-center gap-6">
-          {contactLinks.map((contact, index) => (
-            <a
-              key={index}
-              href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-[13px] font-light"
-            >
-              <span className="text-blue-400">
+    <header className="w-full sticky top-0 z-50 border-b border-blue-800/30 bg-gray-900 shadow-lg">
+      {/* --- TOP BAR --- */}
+      <section className="container-x w-full  h-10 border-b border-slate-800 flex items-center">
+        <div className="container mx-auto px-4 flex justify-end items-center h-full">
+          <div className="flex items-center gap-6">
+            {contactLinks.map((contact, index) => (
+              <a
+                key={index}
+                href={contact.href}
+                className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-[12px]"
+              >
                 {contact.icon}
-              </span>
-              <span className="hidden sm:inline">{contact.label}</span>
-            </a>
-          ))}
-        </div>
-
-        {/* Call to Action or Language (Right Side - Optional) */}
-        {/* <div className="hidden md:flex items-center">
-          <span className="text-slate-500 text-[11px] uppercase tracking-widest font-medium">
-            Paintproof Company Limited
-          </span>
-        </div> */}
-      </div>
-    </section>
-
-    {/* main navbar */}
-      <section className="container-x mx-auto px-4 h-20 flex items-center justify-between">
-
-        {/* Logo */}
-        <a href="/" className="flex items-center gap-2  group">
-          <div className="w-15 h-15 rounded-lg bg-white flex items-center justify-center ">
-             <img src="/logo.jpg" 
-             className="w-full h-full object-scale-down"
-             alt="paintproof กันซึม ดาดฟ้า หลังคารั่ว ภูเก็ต" />
+                <span className="hidden sm:inline">{contact.label}</span>
+              </a>
+            ))}
           </div>
-          <div className="">
-            <span className="text-white font-bold text-lg hidden sm:block">
-              PaintProof
-            </span>
-            <span className="text-white  text-lg hidden sm:block">
+        </div>
+      </section>
+
+      {/* --- MAIN NAVBAR --- */}
+      <section className="container-x mx-auto px-4 h-20 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-12 h-12 rounded-lg bg-white overflow-hidden p-1 shrink-0">
+            <img
+              src="/logo.jpg"
+              className="w-full h-full object-contain"
+              alt="PaintProof Phuket"
+            />
+          </div>
+          <div className="flex flex-col leading-tight">
+            <span className="text-white font-bold text-xl ">PaintProof</span>
+            <span className="text-white  ">
               กันซึม ดาดฟ้า หลังคารั่ว ภูเก็ต
             </span>
           </div>
-        </a>
+        </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList className="gap-1">
+          <NavigationMenuList className="gap-2">
             {APP_MENU.map((item) => (
-              <NavigationMenuItem key={item.href}>
-                <NavigationMenuLink
-                  href={item.href}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "bg-transparent text-gray-300 hover:bg-blue-600/20 hover:text-blue-300",
-                    "focus:bg-blue-600/20 focus:text-blue-300",
-                    "data-[active]:bg-blue-600/30 data-[active]:text-blue-200",
-                    "transition-all duration-200 font-medium text-sm px-4 rounded-md"
-                  )}
-                >
-                  {item.label}
-                </NavigationMenuLink>
+              <NavigationMenuItem key={item.label}>
+                {item.children ? (
+                  <>
+                    <NavigationMenuTrigger className="bg-transparent text-white ">
+                      {item.label}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[240px] gap-1 p-2">
+                        {item.children.map((sub) => (
+                          <li key={sub.href}>
+                            <NavigationMenuLink 
+                            
+                             href={sub.href} asChild>
+                              <div
+                               
+                                className="block select-none space-y-1 p-3 
+                                leading-none no-underline outline-none 
+                                transition-colors
+                                text-sm"
+                              >
+                                {sub.label}
+                              </div>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </>
+                ) : (
+                  <div >
+                    <NavigationMenuLink 
+                    href={item.href} 
+                    className="group inline-flex h-10 w-max items-center justify-center 
+                    rounded-md bg-transparent px-4 py-2 text-sm
+                     font-medium text-white transition-colors ">
+                      {item.label}
+                    </NavigationMenuLink>
+                  </div>
+                )}
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* CTA Button (Desktop) */}
-        {/* <Button
-          className="hidden md:flex bg-blue-500 hover:bg-blue-400 text-white font-semibold text-sm px-5 shadow-md shadow-blue-500/30 border-0 transition-all duration-200"
-          size="sm"
-        >
-          เริ่มต้นใช้งาน
-        </Button> */}
-
-        {/* Mobile Menu */}
+        {/* Mobile Menu (Drawer) */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-gray-300 hover:text-white hover:bg-gray-700"
-            >
-              <Menu className="h-5 w-5" />
+            <Button variant="ghost" size="icon" className="text-white hover:bg-gray-800">
+              <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="bg-gray-800 border-l border-gray-700 w-64 p-0"
+          
+          <SheetContent 
+            side="right" 
+            className="bg-gray-900 border-l border-gray-800 w-80 p-0 text-white flex flex-col h-full"
           >
-            <DialogTitle  />
-            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-700">
-              <span className="text-white font-bold text-lg">เมนู</span>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setOpen(false)}
-                className="text-gray-400 hover:text-white hover:bg-gray-700 -mr-2"
-              >
-                <X className="h-5 w-5" />
-              </Button>
+            <DialogTitle className="sr-only">Main Navigation Menu</DialogTitle>
+            
+            {/* Drawer Header (Fixed) */}
+            <div className="flex items-center justify-between px-6 py-6 border-b border-gray-800 shrink-0">
+              <span className="font-bold text-xl text-blue-400">เมนูหลัก</span>
+              
             </div>
-            <nav className="flex flex-col py-3">
+            
+            {/* Scrollable Area */}
+            <nav className="flex-1 overflow-y-auto py-2">
               {APP_MENU.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="px-5 py-3 text-gray-300 hover:text-blue-300 hover:bg-blue-600/10 font-medium text-sm transition-colors duration-150"
-                >
-                  {item.label}
-                </a>
+                <div key={item.label} className="flex flex-col border-b border-gray-800/50">
+                  {item.children ? (
+                    <div className="flex flex-col pb-2">
+                      <div className="px-6 py-4 text-gray-500 text-[11px] uppercase tracking-[0.2em] font-bold">
+                        {item.label}
+                      </div>
+                      {item.children.map((sub) => (
+                        <Link
+                          key={sub.href}
+                          href={sub.href}
+                          onClick={() => setOpen(false)}
+                          className="px-8 py-3 text-gray-200 hover:bg-blue-600/10 hover:text-blue-400 border-l-2 border-transparent hover:border-blue-500 transition-all text-sm"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="px-6 py-5 text-base font-medium hover:bg-gray-800 transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
-              {/* <div className="px-5 pt-4 mt-2 border-t border-gray-700">
-                <Button className="w-full bg-blue-500 hover:bg-blue-400 text-white font-semibold text-sm">
-                  เริ่มต้นใช้งาน
-                </Button>
-              </div> */}
+              
+              {/* Contact Info inside Drawer (Useful for mobile users) */}
+              <div className="mt-auto p-6 bg-slate-950/50">
+                <p className="text-gray-500 text-xs mb-4 uppercase tracking-widest">Contact Us</p>
+                <div className="space-y-4">
+                  {contactLinks.map((link) => (
+                    <a key={link.name} href={link.href} className="flex items-center gap-3 text-sm text-gray-300">
+                      <span className="text-blue-500">{link.icon}</span>
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </nav>
           </SheetContent>
         </Sheet>

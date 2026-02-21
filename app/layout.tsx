@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/navbar";
 import CookieAcceptance from "./components/CookieConsent";
 import FloatingButton from "./components/floatingButton";
+import Footer from "./components/footer";
 
 const kanit = Kanit({
   variable: "--font-kanit",
@@ -41,6 +42,7 @@ export default function RootLayout({
         <CookieAcceptance />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
