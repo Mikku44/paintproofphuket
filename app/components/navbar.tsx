@@ -41,42 +41,40 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full sticky top-0 z-50 border-b border-blue-800/30 bg-gray-900 shadow-lg">
+    <header className="w-full sticky top-0 z-50 border-b bg-white border-blue-800/30  shadow-lg">
       {/* --- TOP BAR --- */}
-      <section className="container-x w-full  h-10 border-b border-slate-800 flex items-center">
-        <div className="container mx-auto px-4 flex justify-end items-center h-full">
-          <div className="flex items-center gap-6">
-            {contactLinks.map((contact, index) => (
-              <a
-                key={index}
-                href={contact.href}
-                className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-[12px]"
-              >
-                {contact.icon}
-                <span className="hidden sm:inline">{contact.label}</span>
-              </a>
-            ))}
+      <div className="bg-zinc-100">
+        <section className="container-x w-full  h-10  border-slate-800 flex items-center">
+          <div className="container mx-auto px-4 flex justify-end items-center h-full">
+            <div className="flex items-center gap-6">
+              {contactLinks.map((contact, index) => (
+                <a
+                  key={index}
+                  href={contact.href}
+                  className="flex items-center gap-2  hover:text-blue-400 transition-colors text-[12px]"
+                >
+                  {contact.icon}
+                  <span className="hidden sm:inline">{contact.label}</span>
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* --- MAIN NAVBAR --- */}
       <section className="container-x mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-12 h-12 rounded-lg bg-white overflow-hidden p-1 shrink-0">
-            <img
-              src="/logo.jpg"
-              className="w-full h-full object-contain"
-              alt="PaintProof Phuket"
-            />
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="text-white font-bold text-xl ">PaintProof</span>
-            <span className="text-white  ">
+         <div className="w-[220px] h-auto  flex items-center justify-center ">
+                <img src="/logo.jpg" alt="PaintProof Logo" className="mix-blend-darken" />
+              </div>
+          {/* <div className="flex flex-col leading-tight">
+            <span className=" font-bold text-xl ">PaintProof</span>
+            <span className="  ">
               กันซึม ดาดฟ้า หลังคารั่ว ภูเก็ต
             </span>
-          </div>
+          </div> */}
         </Link>
 
         {/* Desktop Navigation */}
@@ -86,11 +84,11 @@ export default function Navbar() {
               <NavigationMenuItem key={item.label}>
                 {item.children ? (
                   <>
-                    <NavigationMenuTrigger className="bg-transparent text-white ">
+                    <NavigationMenuTrigger className="bg-transparent  ">
                       {item.label}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[240px] gap-1 p-2">
+                      <ul className="grid w-[240px] relative inset-0 left-0 gap-1 p-2">
                         {item.children.map((sub) => (
                           <li key={sub.href}>
                             <NavigationMenuLink 
@@ -117,7 +115,7 @@ export default function Navbar() {
                     href={item.href} 
                     className="group inline-flex h-10 w-max items-center justify-center 
                     rounded-md bg-transparent px-4 py-2 text-sm
-                     font-medium text-white transition-colors ">
+                     font-medium  transition-colors ">
                       {item.label}
                     </NavigationMenuLink>
                   </div>
@@ -130,7 +128,7 @@ export default function Navbar() {
         {/* Mobile Menu (Drawer) */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" className="text-white hover:bg-gray-800">
+            <Button variant="ghost" size="icon" className=" hover:bg-blue-600/10">
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
