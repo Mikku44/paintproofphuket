@@ -21,12 +21,42 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "กันซึม ดาดฟ้า หลังคารั่ว ภูเก็ต | PaintProof",
-  description: "กันซึม ดาดฟ้า หลังคารั่ว ภูเก็ต by PaintProof",
-  icons : "/logo.png",
+export const metadata : Metadata = {
+  title: "PaintProof Phuket | บริการกันซึม ดาดฟ้า หลังคารั่ว และรีโนเวทครบวงจร",
+  description: "ผู้นำด้านระบบกันซึมมาตรฐานวิศวกรรมในภูเก็ต รับซ่อมดาดฟ้ารั่ว หลังคาซึม ผนังร้าว และงานรีโนเวทอาคาร โดยทีมช่างผู้เชี่ยวชาญ ประเมินหน้างานฟรี รับประกันผลงานสูงสุด 10 ปี",
+  keywords: [
+    "กันซึม ภูเก็ต",
+    "ซ่อมดาดฟ้ารั่ว ภูเก็ต",
+    "หลังคารั่ว ภูเก็ต",
+    "รีโนเวทบ้าน ภูเก็ต",
+    "ช่างซ่อมบ้าน ภูเก็ต",
+    "PaintProof Phuket",
+    "Waterproof Phuket",
+    "ระบบกันซึม PU",
+    "แก้ปัญหาบ้านรั่วซึม"
+  ],
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    title: "PaintProof Phuket - บริการกันซึมและรีโนเวทอันดับ 1 ในภูเก็ต",
+    description: "แก้ปัญหาการรั่วซึมอย่างยั่งยืน ด้วยวัสดุมาตรฐานสากลและทีมวิศวกรมืออาชีพในพื้นที่ภูเก็ต",
+    // url: "https://yourdomain.com",
+    siteName: "PaintProof Phuket",
+    images: [
+      {
+        url: "/og-image.jpg", // Create a high-quality banner for social shares
+        width: 1200,
+        height: 630,
+        alt: "PaintProof Phuket Professional Services",
+      },
+    ],
+    locale: "th_TH",
+    type: "website",
+  },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{

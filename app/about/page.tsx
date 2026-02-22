@@ -1,6 +1,36 @@
 import { ShieldCheck, Users, HardHat, CheckCircle2, Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: "เกี่ยวกับเรา | Paintproof Phuket ผู้เชี่ยวชาญระบบกันซึมและรีโนเวทอาคาร",
+  description: "รู้จัก Paintproof Phuket ทีมช่างมืออาชีพที่มีประสบการณ์กว่า 10 ปี ด้านระบบกันซึมมาตรฐานวิศวกรรมและการรีโนเวทอาคารในภูเก็ต มุ่งมั่นฟื้นฟูอาคารด้วยวัสดุเกรดพรีเมียม",
+  keywords: [
+    "เกี่ยวกับ Paintproof Phuket",
+    "ช่างซ่อมบ้าน ภูเก็ต",
+    "บริษัทรีโนเวท ภูเก็ต",
+    "ประสบการณ์งานกันซึม",
+    "ซ่อมดาดฟ้า ภูเก็ต",
+    "รีโนเวทอาคาร ภูเก็ต",
+    "Paint Proof Phuket"
+  ],
+  openGraph: {
+    title: "รู้จัก Waterproof Phuket - ผู้นำด้านระบบกันซึมและงานวิศวกรรมอาคาร",
+    description: "ปกป้องการลงทุนของคุณด้วยเทคโนโลยีกันซึมมาตรฐานสากล และทีมช่างผู้เชี่ยวชาญที่มีผลงานกว่า 500 โครงการในภูเก็ต",
+    // url: "https://yourdomain.com/about", // Replace with your actual URL
+    siteName: "Waterproof Phuket",
+    images: [
+      {
+        url: "/images/2.jpg", // Using the team image from your code
+        width: 1200,
+        height: 630,
+        alt: "ทีมงาน Waterproof Phuket",
+      },
+    ],
+    locale: "th_TH",
+    type: "website",
+  },
+};
+
 export default function AboutPage() {
   return (
     <div className="bg-white min-h-screen text-slate-800">

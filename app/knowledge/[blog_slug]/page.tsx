@@ -12,6 +12,43 @@ import { FaChevronLeft, FaRegClock, FaRegCalendarAlt, FaRegUser } from 'react-ic
 import { blogData } from '../../repositories/blogsData';
 import SocialShare from '@/app/components/ShareButton';
 
+export async function generateMetadata({ params }: { params: Promise<{ blog_slug: string }> }) {
+  const { blog_slug } = await params;
+  
+  // Fetch post data or fallback
+  const post = blogData[blog_slug] ?? blogData["roof-insulation-technology"];
+
+  return {
+    title: `${post.title} | PaintProof Phuket`,
+    description: post.excerpt || `อ่านบทความเรื่อง ${post.title} และสาระน่ารู้เกี่ยวกับการดูแลบ้านและระบบกันซึมโดยทีมช่างภูเก็ต`,
+    keywords: [post.category, "ความรู้เรื่องบ้าน", "กันซึม ภูเก็ต", "ซ่อมบ้าน ภูเก็ต"],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      // url: `https://yourdomain.com/blog/${blog_slug}`,
+      siteName: "PaintProof Phuket",
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      locale: "th_TH",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  };
+}
+
 async function getMarkdownContent(markdown: string) {
   const result = await unified()
     .use(remarkParse)

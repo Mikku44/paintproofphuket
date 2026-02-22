@@ -2,6 +2,38 @@ import { serviceData } from '@/app/repositories/servicesData';
 import { CheckCircle2, ShieldCheck, Clock,  ArrowRight, Phone } from 'lucide-react';
 import Link from 'next/link';
 
+export async function generateMetadata({ params }: { params: { service_name: string } }) {
+  const { service_name } = await params;
+  const service = serviceData[service_name] || serviceData['waterproofing'];
+
+  // Fallback keywords based on service name
+  const dynamicKeywords = service_name === 'waterproofing' 
+    ? ["กันซึมดาดฟ้า", "ซ่อมรอยรั่ว", "ช่างกันซึมภูเก็ต"] 
+    : ["รีโนเวทบ้าน", "ปรับปรุงอาคาร", "รับเหมาภูเก็ต"];
+
+  return {
+    title: `${service.title} | PaintProof Phuket`,
+    description: `${service.description} บริการโดยทีมช่างมืออาชีพในภูเก็ต พร้อมรับประกันผลงานและประเมินหน้างานฟรี`,
+    keywords: [...dynamicKeywords, "PaintProof Phuket", "บริการช่างซ่อมบ้าน"],
+    openGraph: {
+      title: `${service.title} - PaintProof Phuket`,
+      description: service.description,
+      // url: `https://paintproofphuket.com/services/${service_name}`,
+      siteName: "PaintProof Phuket",
+      images: [
+        {
+          url: service.image,
+          width: 1200,
+          height: 630,
+          alt: service.title,
+        },
+      ],
+      locale: "th_TH",
+      type: "website",
+    },
+  };
+}
+
 
 export  default async  function ServiceDetailPage({ params }: { params: { service_name: string } }) {
   // ดึงข้อมูลตาม Params (ในที่นี้ทำตัวอย่างเป็น 'waterproofing')

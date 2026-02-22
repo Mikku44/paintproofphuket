@@ -1,6 +1,4 @@
-import React from 'react';
-import { Facebook, Mail, Phone, MapPin, Send } from 'lucide-react';
-import { SERVICES } from '../const/app';
+import { Facebook, Mail, Phone } from 'lucide-react';
 import FacebookPage from '../components/FacebookPage';
 import ContactForm from './components/ContactForm';
 
@@ -24,6 +22,35 @@ const contactLinks = [
     label: "080-969-9965",
   },
 ];
+export const metadata = {
+  title: "ติดต่อเรา | Paintproof Phuket บริการกันซึมและซ่อมรอยแตกร้าว ภูเก็ต",
+  description: "ปรึกษาปัญหาบ้านรั่วซึม ดาดฟ้า ผนังแตกร้าว ในพื้นที่ภูเก็ตและใกล้เคียง ติดต่อทีมช่างผู้เชี่ยวชาญ Waterproof Phuket ประเมินหน้างานฟรี โทร 080-969-9965",
+  keywords: [
+    "กันซึม ภูเก็ต",
+    "ซ่อมดาดฟ้ารั่ว",
+    "แก้ปัญหาผนังรั่วซึม",
+    "Waterproof Phuket",
+    "ช่างกันซึม ภูเก็ต",
+    "ทาสีกันซึม",
+    "ติดต่อ Waterproof Phuket"
+  ],
+  openGraph: {
+    title: "ติดต่อสอบถามบริการกันซึม - Waterproof Phuket",
+    description: "ยินดีให้คำปรึกษาและประเมินราคาหน้างานโดยทีมช่างผู้เชี่ยวชาญ ระบบกันซึมมาตรฐานสากล",
+    // url: "https://yourdomain.com/contact", // Replace with your actual URL
+    siteName: "Waterproof Phuket",
+    // images: [
+    //   {
+    //     url: "/og-contact.jpg", // Path to your shared image
+    //     width: 1200,
+    //     height: 630,
+    //     alt: "Waterproof Phuket Contact Page",
+    //   },
+    // ],
+    locale: "th_TH",
+    type: "website",
+  },
+};
 
 
 export default function ContactPage() {

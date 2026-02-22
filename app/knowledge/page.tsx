@@ -45,6 +45,36 @@ const posts = [
   }
 ];
 
+export const metadata = {
+  title: "สาระน่ารู้เรื่องบ้านและงานกันซึม | Blog & Insights - PaintProof Phuket",
+  description: "ศูนย์รวมบทความและเทคนิคการดูแลบ้านจากผู้เชี่ยวชาญ เจาะลึกเรื่องระบบกันซึม การเลือกวัสดุ PU vs Acrylic นวัตกรรมสีกันความร้อน และเคสรีโนเวทจริงในภูเก็ต",
+  keywords: [
+    "ความรู้เรื่องบ้าน",
+    "วิธีแก้ดาดฟ้ารั่ว",
+    "สีทากันความร้อน",
+    "รีวิวกันซึม PU vs Acrylic",
+    "รีโนเวทบ้าน ภูเก็ต",
+    "การดูแลอาคาร",
+    "PaintProof Phuket Blog"
+  ],
+  openGraph: {
+    title: "บทความและสาระน่ารู้เรื่องการดูแลอาคาร - PaintProof Phuket",
+    description: "อัปเดตเทรนด์นวัตกรรมกันซึมและเทคนิคการรีโนเวทบ้านให้น่าอยู่ พร้อมคำแนะนำจากทีมวิศวกรมืออาชีพ",
+    // url: "https://yourdomain.com/knowledge", // Replace with your actual URL
+    siteName: "PaintProof Phuket",
+    images: [
+      {
+        url: "/images/tech.png", // Using your featured post image
+        width: 1200,
+        height: 630,
+        alt: "นวัตกรรมการพ่นสีหลังคากันความร้อน",
+      },
+    ],
+    locale: "th_TH",
+    type: "article",
+  },
+};
+
 export default function BlogPage() {
 
   const featuredPost = posts.find((p) => p.featured);
