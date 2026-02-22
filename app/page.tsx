@@ -1,40 +1,10 @@
+import Link from "next/link";
 import ImageCarousel from "./components/ImageCarousel";
-import { HOME_IMAGES } from "./const/app";
-import { ArrowRight, ShieldCheck, Paintbrush, Home as HomeIcon } from "lucide-react";
+import { HOME_IMAGES, serviceImage } from "./const/app";
+import { ArrowRight, ShieldCheck, CheckCircle2, MapPin } from "lucide-react";
 
 // ข้อมูลบริการสำหรับ Grid
-const services = [
-  {
-    title: "กันซึมดาดฟ้า หลังคา ผนัง",
-    description: "ติดตั้งระบบกันซึมมาตรฐานสากล ป้องกันน้ำรั่วซึมเข้าสู่โครงสร้างอาคารอย่างถาวร",
-    image: "/images/service1.jpg"
-  },
-  {
-    title: "ซ่อมแซมรอยรั่ว รอยแตกร้าว",
-    description: "วิเคราะห์และแก้ไขปัญหารอยร้าวด้วยวัสดุประสานประสิทธิภาพสูง ทนทานต่อแรงมัดตัว",
-    image: "/images/service2.jpg"
-  },
-  {
-    title: "งานติดตั้ง ซ่อมฝ้าเพดาน",
-    description: "บริการงานฝ้าครบวงจร แก้ไขปัญหาฝ้าบวมชื้นจากน้ำรั่ว พร้อมตกแต่งให้เรียบเนียน",
-    image: "/images/service3.jpg"
-  },
-  {
-    title: "งานพ่นสีหลังคา ซ่อมหลังคา",
-    description: "ฟื้นฟูหลังคาเก่าให้ใหม่ด้วยสีสะท้อนความร้อน พร้อมระบบกันซึมคุณภาพสูง",
-    image: "/images/service4.jpg"
-  },
-  {
-    title: "ซ่อมพื้นปูน กระเบื้อง ภายนอก",
-    description: "ซ่อมบำรุงพื้นผิวภายนอก ปูกระเบื้อง และแก้ไขปัญหาพื้นแตกร้าวจากการทรุดตัว",
-    image: "/images/service5.jpg"
-  },
-  {
-    title: "รีโนเวทบ้าน อาคาร",
-    description: "ปรับปรุงอาคารเก่าให้ทันสมัย แข็งแรง และตอบโจทย์การใช้งานยุคใหม่",
-    image: "/images/service6.jpg"
-  }
-];
+
 
 export default async function Home() {
   return (
@@ -81,6 +51,37 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-10">
+            <div className="space-y-3">
+              <h3 className=" font-bold flex items-center gap-2">
+                <MapPin className="size-4 text-blue-800" /> พื้นที่ให้บริการ
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                ครอบคลุมทั่วเกาะภูเก็ต ทั้งอำเภอเมือง, กะทู, ถลาง รวมถึงพื้นที่ใกล้เคียงอย่าง พังงา และกระบี่
+              </p>
+            </div>
+            <div className="space-y-3">
+              <h3 className=" font-bold flex items-center gap-2">
+                <ShieldCheck className="size-4 text-blue-800" /> มาตรฐานสากล
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                เลือกใช้ผลิตภัณฑ์กันซึมเกรดพรีเมียม (Polyurethane & Acrylic) ที่ทนทานต่อไอเค็มทะเลและ UV สูง
+              </p>
+            </div>
+            <div className="space-y-3">
+              <h3 className=" font-bold flex items-center gap-2">
+                <CheckCircle2 className="size-4 text-blue-800" /> รับประกันงาน
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                ทุกงานซ่อมและงานติดตั้งมีการรับประกันผลงาน ช่างเข้าตรวจสอบหน้างานรวดเร็วภายใน 24 ชม.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. Services Grid Section */}
       <section className="py-24 bg-slate-50/50">
         <div className="max-w-6xl mx-auto px-6">
@@ -90,7 +91,7 @@ export default async function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 md:gap-8 gap-1">
-            {services.map((service, index) => (
+            {serviceImage.map((service, index) => (
               <div key={index} className="group bg-white border border-slate-100  overflow-hidden hover:shadow-xl transition-all duration-500">
                 <div className="aspect-[1/1] overflow-hidden relative">
                   <img
@@ -98,7 +99,7 @@ export default async function Home() {
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-700"
                   />
-                  <a href="/services" className="absolute bottom-4 left-4
+                  <a href={service.href} className="absolute bottom-4 left-4
                    items-center text-xs font-medium uppercase tracking-widest
                    bg-white rounded-full  w-fit inline-flex px-4 py-2
                      group-hover:text-blue-800 transition-colors">
@@ -112,12 +113,87 @@ export default async function Home() {
                   <p className="text-slate-500 text-sm leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <a href="/services" className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-800 transition-colors">
+                  <a href={service.href} className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-800 transition-colors">
                     ดูรายละเอียด <ArrowRight className="ml-2 size-3" />
                   </a>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* ฝั่งซ้าย: เนื้อหาหลัก */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-blue-800">
+                  Expertise You Can Trust
+                </h2>
+                <h3 className="text-4xl md:text-5xl font-light text-slate-900 leading-tight">
+                  ทำไมต้องเลือก <br />
+                  <span className="font-semibold text-blue-900 italic">Waterproof Phuket?</span>
+                </h3>
+              </div>
+
+              <p className="text-slate-600 text-lg leading-relaxed">
+                หากคุณกำลังมองหา <strong>ช่างทาสีกันซึมดาดฟ้าในภูเก็ต</strong> หรือต้องการ <strong>ซ่อมหลังคารั่ว</strong> ที่ได้มาตรฐาน เราคือคำตอบ
+                ด้วยประสบการณ์กว่า 10 ปี ในการดูแลวิลล่าและอาคารหรูทั่วเกาะภูเก็ต
+              </p>
+
+              {/* ฟีเจอร์ย่อยแบบ Grid */}
+              <div className="grid sm:grid-cols-2 gap-6 pt-4">
+                <div className="flex gap-4">
+                  <div className="size-10 shrink-0 bg-blue-100 flex items-center justify-center rounded-sm">
+                    <ShieldCheck className="text-blue-800 size-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm">วัสดุคุณภาพสูง</h4>
+                    <p className="text-xs text-slate-500 mt-1">Paint Proof ยืดหยุ่นสูง สะท้อนความร้อน</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="size-10 shrink-0 bg-blue-100 flex items-center justify-center rounded-sm">
+                    <MapPin className="text-blue-800 size-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm">เชี่ยวชาญพื้นที่</h4>
+                    <p className="text-xs text-slate-500 mt-1">เข้าใจสภาพอากาศฝนชุกและไอทะเลภูเก็ต</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <Link href="/about" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900 hover:text-blue-800 transition-all group">
+                  อ่านเรื่องราวของเรา <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* ฝั่งขวา: Visual Element (สไตล์วิศวกรรม) */}
+            <div className="relative">
+              <div className="aspect-square bg-slate-200 rounded-sm relative overflow-hidden shadow-2xl">
+                <img
+                  src="/images/5.jpg"
+                  alt="Waterproof Phuket Professional Work"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+
+              {/* กล่องตัวเลขลอยตัว (Floating Badge) */}
+              <div className="absolute -bottom-8 -left-8 bg-blue-900 p-8 rounded-sm text-white shadow-xl hidden sm:block">
+                <div className="flex items-center gap-4">
+                  <span className="text-5xl font-bold italic">10+</span>
+                  <div className="text-[10px] uppercase tracking-widest leading-tight opacity-80">
+                    Years of <br /> Engineering <br /> Excellence
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

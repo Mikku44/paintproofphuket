@@ -47,32 +47,38 @@ export const SERVICES = [
 export const serviceImage = [
   {
     title: "กันซึมดาดฟ้า หลังคา ผนัง",
-    description: "บริการติดตั้งระบบกันซึมมาตรฐานสูง ป้องกันน้ำรั่วซึมทุกจุดของอาคารอย่างถาวร",
-    image: "/images/service1.jpg" // เปลี่ยน path รูปภาพตามจริง
+    description: "ติดตั้งระบบกันซึมมาตรฐานสากล ป้องกันน้ำรั่วซึมเข้าสู่โครงสร้างอาคารอย่างถาวร",
+    image: "/images/service1.jpg",
+    href: "/services/waterproofing"
   },
   {
     title: "ซ่อมแซมรอยรั่ว รอยแตกร้าว",
-    description: "แก้ไขปัญหารอยร้าวโครงสร้างและรอยรั่วซึมด้วยวัสดุประสานประสิทธิภาพสูง",
-    image: "/images/service2.jpg"
+    description: "วิเคราะห์และแก้ไขปัญหารอยร้าวด้วยวัสดุประสานประสิทธิภาพสูง ทนทานต่อแรงมัดตัว",
+    image: "/images/service2.jpg",
+    href: "/services/crack-repair"
   },
   {
     title: "งานติดตั้ง ซ่อมฝ้าเพดาน",
-    description: "ติดตั้งและซ่อมบำรุงงานฝ้าเพดานทุกชนิด เก็บงานละเอียด เรียบเนียน",
-    image: "/images/service3.jpg"
+    description: "บริการงานฝ้าครบวงจร แก้ไขปัญหาฝ้าบวมชื้นจากน้ำรั่ว พร้อมตกแต่งให้เรียบเนียน",
+    image: "/images/service3.jpg",
+    href: "/services/ceiling-work"
   },
   {
-    title: "งานพ่นสีหลังคา กันซึม ซ่อมหลังคา",
-    description: "ฟื้นฟูสภาพหลังคาให้เหมือนใหม่ พร้อมเสริมชั้นกันซึมและพ่นสีสะท้อนความร้อน",
-    image: "/images/service4.jpg"
+    title: "งานพ่นสีหลังคา ซ่อมหลังคา",
+    description: "ฟื้นฟูหลังคาเก่าให้ใหม่ด้วยสีสะท้อนความร้อน พร้อมระบบกันซึมคุณภาพสูง",
+    image: "/images/service4.jpg",
+    href: "/services/roof-painting"
   },
   {
     title: "ซ่อมพื้นปูน กระเบื้อง ภายนอก",
-    description: "งานซ่อมบำรุงพื้นผิวภายนอก ปูกระเบื้อง และแก้ไขปัญหาพื้นทรุดแตกร้าว",
-    image: "/images/service5.jpg"
+    description: "ซ่อมบำรุงพื้นผิวภายนอก ปูกระเบื้อง และแก้ไขปัญหาพื้นแตกร้าวจากการทรุดตัว",
+    image: "/images/service5.jpg",
+    href: "/services/flooring-repair"
   },
   {
     title: "รีโนเวทบ้าน อาคาร",
-    description: "บริการปรับปรุงอาคารเก่าให้ทันสมัย ครบวงจรตั้งแต่โครงสร้างจนถึงความสวยงาม",
-    image: "/images/service6.png"
+    description: "ปรับปรุงอาคารเก่าให้ทันสมัย แข็งแรง และตอบโจทย์การใช้งานยุคใหม่",
+    image: "/images/service6.jpg",
+    href: "/services/renovation"
   }
 ];

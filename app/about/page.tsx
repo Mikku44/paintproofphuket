@@ -1,4 +1,5 @@
-import { ShieldCheck, Users, HardHat,  CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Users, HardHat, CheckCircle2, Phone, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AboutPage() {
   return (
@@ -21,14 +22,14 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div className="relative">
             <div className="aspect-[4/5] bg-slate-200 rounded-sm overflow-hidden shadow-2xl">
-              <img 
-                src="/images/2.jpg" 
-                alt="ทีมงาน Waterproof Phuket" 
+              <img
+                src="/images/2.jpg"
+                alt="ทีมงาน Waterproof Phuket"
                 className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
               />
             </div>
             {/* ตราประทับความสำเร็จ */}
-            <div className="absolute -bottom-8 -left-8 bg-white p-10 border border-slate-100 shadow-xl hidden lg:block">
+            <div className="absolute rounded-sm -bottom-8 -left-8 bg-white p-10 border border-slate-100 shadow-xl hidden lg:block">
               <p className="text-5xl font-bold text-blue-800">10+</p>
               <p className="text-xs uppercase tracking-widest text-slate-400 mt-2 font-semibold">Years of Quality</p>
             </div>
@@ -38,13 +39,13 @@ export default function AboutPage() {
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold text-slate-900">ประสบการณ์และความเชี่ยวชาญ</h3>
               <p className="text-slate-500 leading-relaxed">
-                Waterproof Phuket เริ่มต้นจากการเล็งเห็นปัญหาการรั่วซึมของอาคารในพื้นที่ภูเก็ต 
-                ซึ่งเป็นจังหวัดที่มีสภาพอากาศร้อนชื้นและมีฝนตกชุกตลอดปี 
+                Waterproof Phuket เริ่มต้นจากการเล็งเห็นปัญหาการรั่วซึมของอาคารในพื้นที่ภูเก็ต
+                ซึ่งเป็นจังหวัดที่มีสภาพอากาศร้อนชื้นและมีฝนตกชุกตลอดปี
                 เราจึงทุ่มเทศึกษาและพัฒนาระบบกันซึมที่เหมาะสมกับสภาพอากาศในพื้นที่โดยเฉพาะ
               </p>
               <p className="text-slate-500 leading-relaxed">
-                เราเชื่อว่าบ้านและอาคารคือการลงทุนที่สำคัญที่สุด 
-                ภารกิจของเราคือการปกป้องการลงทุนนั้นด้วยเทคโนโลยีกันซึมมาตรฐานสากล 
+                เราเชื่อว่าบ้านและอาคารคือการลงทุนที่สำคัญที่สุด
+                ภารกิจของเราคือการปกป้องการลงทุนนั้นด้วยเทคโนโลยีกันซึมมาตรฐานสากล
                 และการบริการที่ซื่อสัตย์ต่อลูกค้า
               </p>
             </div>
@@ -57,7 +58,7 @@ export default function AboutPage() {
                 { title: "ตรงต่อเวลา", desc: "บริหารจัดการงานอย่างเป็นระบบ จบงานตามกำหนดการ" }
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-4 group">
-                  <div className="p-2 border border-slate-200 group-hover:border-blue-200 transition-colors">
+                  <div className="p-2 border rounded-full border-slate-200 group-hover:border-blue-200 transition-colors">
                     <CheckCircle2 className="size-5 text-blue-800" />
                   </div>
                   <div>
@@ -98,7 +99,7 @@ export default function AboutPage() {
             <div className="flex justify-center"><ShieldCheck className="size-10 text-slate-300" /></div>
             <h4 className="text-lg font-semibold">Reliability</h4>
             <p className="text-sm text-slate-500 leading-relaxed">
-              เราเลือกใช้เฉพาะผลิตภัณฑ์กันซึมเกรดพรีเมียม (Paint Proof) 
+              เราเลือกใช้เฉพาะผลิตภัณฑ์กันซึมเกรดพรีเมียม (Paint Proof)
               ที่ผ่านการทดสอบแล้วว่าทนทานต่อรังสียูวีและไอเค็มจากทะเล
             </p>
           </div>
@@ -106,7 +107,7 @@ export default function AboutPage() {
             <div className="flex justify-center"><Users className="size-10 text-slate-300" /></div>
             <h4 className="text-lg font-semibold">Expert Team</h4>
             <p className="text-sm text-slate-500 leading-relaxed">
-              ทีมช่างของเราผ่านการฝึกอบรมเฉพาะทางด้านงานกันซึมและงานรีโนเวท 
+              ทีมช่างของเราผ่านการฝึกอบรมเฉพาะทางด้านงานกันซึมและงานรีโนเวท
               เข้าใจปัญหาหน้างานที่ซับซ้อนและรู้วิธีแก้ไขที่ต้นเหตุ
             </p>
           </div>
@@ -114,12 +115,98 @@ export default function AboutPage() {
             <div className="flex justify-center"><HardHat className="size-10 text-slate-300" /></div>
             <h4 className="text-lg font-semibold">Quality Control</h4>
             <p className="text-sm text-slate-500 leading-relaxed">
-              ทุกขั้นตอนการทำงานมีการตรวจสอบคุณภาพอย่างละเอียด (Quality Check) 
+              ทุกขั้นตอนการทำงานมีการตรวจสอบคุณภาพอย่างละเอียด (Quality Check)
               เพื่อให้มั่นใจว่างานจะไม่มีปัญหาการรั่วซึมซ้ำซาก
             </p>
           </div>
         </div>
       </section>
+
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+
+            {/* 1. Image Banner Area (9:16 Aspect Ratio) */}
+            <div className="md:col-span-5 lg:col-span-4">
+              <div className="relative aspect-[13/16] w-full overflow-hidden rounded-sm shadow-2xl group">
+                <img
+                  src="/images/banner.jpg"
+                  alt="Renovation Work"
+                  className="w-full h-full object-cover transition-transform duration-1000 "
+                />
+                {/* Overlay Decor */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+
+
+              </div>
+            </div>
+
+            {/* 2. Content Area */}
+            <div className="md:col-span-7 lg:col-span-8 space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-blue-800">Premium Renovation</h2>
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 leading-tight">
+                  ที่สุดของงานปรับปรุง <br />
+                  <span className="font-semibold">และรีโนเวทอาคาร</span>
+                </h3>
+              </div>
+
+              <p className="text-slate-500 text-lg leading-relaxed max-w-2xl">
+                เราไม่เพียงแค่ซ่อมแซม แต่เราคือการฟื้นฟูอาคารของคุณให้กลับมามีชีวิตชีวาอีกครั้ง
+                ด้วยการคัดสรรวัสดุคุณภาพสูงและทีมช่างที่ใส่ใจในทุกรายละเอียดงานผิวและโครงสร้าง
+              </p>
+
+              <div className="flex flex-wrap gap-6 pt-4">
+                <div className="flex flex-col">
+                  <span className="text-3xl font-light text-slate-900 tracking-tighter">100+</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Projects Done</span>
+                </div>
+                <div className="w-[1px] h-12 bg-slate-200 hidden sm:block"></div>
+                <div className="flex flex-col">
+                  <span className="text-3xl font-light text-slate-900 tracking-tighter">100%</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Quality Assured</span>
+                </div>
+              </div>
+
+              <div className="pt-8 flex flex-wrap gap-4">
+                <Link href="/contact" className="px-8 py-4 bg-blue-800 text-white text-xs font-bold uppercase tracking-widest hover:bg-slate-900 transition-all rounded-sm flex items-center gap-3">
+                  รับคำปรึกษาฟรี <ArrowRight className="size-4" />
+                </Link>
+                <a href="tel:0809699965" className="px-8 py-4 border border-slate-200 text-slate-900 text-xs font-bold uppercase tracking-widest hover:bg-slate-50 transition-all rounded-sm flex items-center gap-3">
+                  <Phone className="size-3" /> 080-969-9965
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </section>
+
+      <section>
+        <div className="container-x grid md:grid-cols-4 grid-cols-2 gap-2">
+         {[
+            "/images/banner2.jpg",
+            "/images/banner3.jpg",
+            "/images/banner4.jpg",
+            "/images/banner5.jpg"
+         ].map((image, index) => <div key={index} className="relative aspect-[13/16] w-full overflow-hidden rounded-sm shadow-2xl group">
+            <img
+              src={image}
+              alt="Renovation Work"
+              loading='lazy'
+              className="w-full h-full object-cover transition-transform duration-1000 "
+            />
+            {/* Overlay Decor */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+
+
+          </div>)}
+        </div>
+      </section>
+
+
 
       {/* 5. Closing CTA */}
       <section className="pb-24 px-6 text-center">
@@ -127,8 +214,8 @@ export default function AboutPage() {
           <p className="text-slate-500 italic mb-8">
             "คุณภาพงานที่คงทน คือหัวใจสำคัญของการทำงานของเรา"
           </p>
-          <a 
-            href="/contact" 
+          <a
+            href="/contact"
             className="inline-block border-b-2 border-blue-800 pb-2 text-sm font-bold uppercase tracking-widest text-slate-900 hover:text-blue-800 transition-all"
           >
             ร่วมงานกับเราวันนี้

@@ -32,7 +32,7 @@ export default function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   };
 
   return (
-    <section className="relative h-[82vh] w-full overflow-hidden bg-zinc-900">
+    <section className="relative w-full md:h-[82vh] aspect-video w-full overflow-hidden bg-zinc-900">
       <AnimatePresence custom={direction} initial={false}>
         <motion.img
           key={slides[currentIndex].id}
@@ -43,7 +43,7 @@ export default function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
           animate={{ x: 0 }}
           exit={{ x: direction > 0 ? "-100%" : "100%" }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} // cubic-bezier smooth
-          className="absolute inset-0 w-full h-full object-cover brightness-75"
+          className="absolute inset-0 w-full h-full object-contain brightness-75"
         />
       </AnimatePresence>
 

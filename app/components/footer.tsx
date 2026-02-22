@@ -179,8 +179,8 @@ export default function Footer() {
             © {new Date().getFullYear()} PaintProof Company Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-800">นโยบายความเป็นส่วนตัว</a>
-            <a href="#" className="hover:text-slate-800">เงื่อนไขการให้บริการ</a>
+            {/* <a href="#" className="hover:text-slate-800">นโยบายความเป็นส่วนตัว</a>
+            <a href="#" className="hover:text-slate-800">เงื่อนไขการให้บริการ</a> */}
           </div>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Facebook, Mail, Phone, MapPin, Send } from 'lucide-react';
 import { SERVICES } from '../const/app';
+import FacebookPage from '../components/FacebookPage';
+import ContactForm from './components/ContactForm';
 
 const contactLinks = [
   {
@@ -81,62 +83,13 @@ export default function ContactPage() {
                 ></iframe>
               </div>
             </section>
+
+            <FacebookPage />
           </div>
 
           {/* คอลัมน์ขวา: แบบฟอร์มสอบถาม */}
           <div className="lg:col-span-7">
-            <div className="bg-white border border-slate-200 p-8 md:p-10 rounded-sm shadow-sm relative overflow-hidden">
-              
-              <h2 className="text-xl font-semibold text-slate-900 mb-8">ส่งคำขอรับบริการ</h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold uppercase text-slate-500 tracking-wider">ชื่อ-นามสกุล</label>
-                    <input
-                      type="text"
-                      className="w-full border-b border-slate-300 py-2 focus:border-blue-800 outline-none transition-colors bg-transparent"
-                      placeholder="ระบุชื่อผู้ติดต่อ"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold uppercase text-slate-500 tracking-wider">เบอร์โทรศัพท์</label>
-                    <input
-                      type="tel"
-                      className="w-full border-b border-slate-300 py-2 focus:border-blue-800 outline-none transition-colors bg-transparent"
-                      placeholder="08X-XXX-XXXX"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase text-slate-500 tracking-wider">บริการที่สนใจ</label>
-                  <select defaultValue={SERVICES[0].label} className="w-full border-b border-slate-300 py-2 bg-transparent focus:border-blue-800 outline-none transition-colors appearance-none cursor-pointer">
-                    <option value="" disabled >กรุณาเลือกประเภทงานบริการ</option>
-                    {SERVICES.map((service, index) => (
-                      <option key={index} value={service.label}>{service.label}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase text-slate-500 tracking-wider">รายละเอียดข้อความ</label>
-                  <textarea
-                    rows={4}
-                    className="w-full border border-slate-200 p-3 focus:border-blue-800 outline-none transition-colors bg-slate-50/50 rounded-sm"
-                    placeholder="ระบุรายละเอียดปัญหา หรือขนาดพื้นที่โดยสังเขป..."
-                  ></textarea>
-                </div>
-
-                <div className="pt-2 ">
-                  <button
-                    type="submit"
-                    className="flex items-center justify-center gap-3 w-full  rounded-xl px-12 py-4 bg-slate-900 text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-blue-800 transition-all duration-300"
-                  >
-                    ส่งข้อมูล <Send className="size-3" />
-                  </button>
-                </div>
-              </form>
-            </div>
+           <ContactForm />
           </div>
 
         </div>

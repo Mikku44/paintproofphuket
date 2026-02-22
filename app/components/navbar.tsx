@@ -50,6 +50,8 @@ export default function Navbar() {
               {contactLinks.map((contact, index) => (
                 <a
                   key={index}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   href={contact.href}
                   className="flex items-center gap-2  hover:text-blue-400 transition-colors text-[12px]"
                 >
@@ -66,9 +68,9 @@ export default function Navbar() {
       <section className="container-x mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-         <div className="w-[220px] h-auto  flex items-center justify-center ">
-                <img src="/logo.jpg" alt="PaintProof Logo" className="mix-blend-darken" />
-              </div>
+          <div className="w-[220px] h-auto  flex items-center justify-center ">
+            <img src="/logo.jpg" alt="PaintProof Logo" className="mix-blend-darken" />
+          </div>
           {/* <div className="flex flex-col leading-tight">
             <span className=" font-bold text-xl ">PaintProof</span>
             <span className="  ">
@@ -91,11 +93,11 @@ export default function Navbar() {
                       <ul className="grid w-[240px] relative inset-0 left-0 gap-1 p-2">
                         {item.children.map((sub) => (
                           <li key={sub.href}>
-                            <NavigationMenuLink 
-                            
-                             href={sub.href} asChild>
+                            <NavigationMenuLink
+
+                              href={sub.href}>
                               <div
-                               
+
                                 className="block select-none space-y-1 p-3 
                                 leading-none no-underline outline-none 
                                 transition-colors
@@ -111,9 +113,9 @@ export default function Navbar() {
                   </>
                 ) : (
                   <div >
-                    <NavigationMenuLink 
-                    href={item.href} 
-                    className="group inline-flex h-10 w-max items-center justify-center 
+                    <NavigationMenuLink
+                      href={item.href}
+                      className="group inline-flex h-10 w-max items-center justify-center 
                     rounded-md bg-transparent px-4 py-2 text-sm
                      font-medium  transition-colors ">
                       {item.label}
@@ -132,19 +134,19 @@ export default function Navbar() {
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          
-          <SheetContent 
-            side="right" 
+
+          <SheetContent
+            side="right"
             className="bg-gray-900 border-l border-gray-800 w-80 p-0 text-white flex flex-col h-full"
           >
             <DialogTitle className="sr-only">Main Navigation Menu</DialogTitle>
-            
+
             {/* Drawer Header (Fixed) */}
             <div className="flex items-center justify-between px-6 py-6 border-b border-gray-800 shrink-0">
               <span className="font-bold text-xl text-blue-400">เมนูหลัก</span>
-              
+
             </div>
-            
+
             {/* Scrollable Area */}
             <nav className="flex-1 overflow-y-auto py-2">
               {APP_MENU.map((item) => (
@@ -176,7 +178,7 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-              
+
               {/* Contact Info inside Drawer (Useful for mobile users) */}
               <div className="mt-auto p-6 bg-slate-950/50">
                 <p className="text-gray-500 text-xs mb-4 uppercase tracking-widest">Contact Us</p>
@@ -193,6 +195,18 @@ export default function Navbar() {
           </SheetContent>
         </Sheet>
       </section>
+      <div className="h-12 bg-white hidden my-2 container-x md:flex justify-end">
+        {APP_MENU[1]?.children?.map((sub) => (
+          <Link
+            key={sub.href}
+            href={sub.href}
+            onClick={() => setOpen(false)}
+            className="px-4 py-3  hover:bg-blue-600/10 hover:text-blue-400 transition-all text-sm"
+          >
+            {sub.label}
+          </Link>
+        ))}
+      </div>
     </header>
   );
 }
