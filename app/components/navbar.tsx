@@ -15,6 +15,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { APP_MENU } from "../const/app";
 import { DialogTitle } from "@/components/ui/dialog";
 import Link from "next/link";
+import { BsLine } from "react-icons/bs";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -37,6 +38,13 @@ export default function Navbar() {
       icon: <Phone className="size-4" />,
       href: "tel:0809699965",
       label: "080-969-9965",
+    },
+    {
+      name: "Line",
+      icon: <BsLine className="size-5" />,
+      href: "https://line.me/ti/p/VSm3MrqeEr",
+      color: "bg-green-500",
+      label: "PaintProof บน Line"
     },
   ];
 

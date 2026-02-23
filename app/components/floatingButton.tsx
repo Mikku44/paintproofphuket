@@ -8,6 +8,7 @@ import {
   Facebook,
   X,
 } from "lucide-react";
+import { BsLine } from "react-icons/bs";
 
 export default function FloatingButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +34,13 @@ export default function FloatingButton() {
       href: "tel:0809699965",
       color: "bg-green-500",
       label: "080-969-9965"
+    },
+    {
+      name: "Line",
+      icon: <BsLine  className="size-5" />,
+      href: "https://line.me/ti/p/VSm3MrqeEr",
+      color: "bg-green-500",
+      label: "PaintProof บน Line"
     },
   ];
 

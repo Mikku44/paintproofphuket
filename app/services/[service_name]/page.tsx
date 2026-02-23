@@ -1,5 +1,5 @@
 import { serviceData } from '@/app/repositories/servicesData';
-import { CheckCircle2, ShieldCheck, Clock,  ArrowRight, Phone } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Clock, ArrowRight, Phone } from 'lucide-react';
 import Link from 'next/link';
 
 export async function generateMetadata({ params }: { params: { service_name: string } }) {
@@ -7,8 +7,8 @@ export async function generateMetadata({ params }: { params: { service_name: str
   const service = serviceData[service_name] || serviceData['waterproofing'];
 
   // Fallback keywords based on service name
-  const dynamicKeywords = service_name === 'waterproofing' 
-    ? ["กันซึมดาดฟ้า", "ซ่อมรอยรั่ว", "ช่างกันซึมภูเก็ต"] 
+  const dynamicKeywords = service_name === 'waterproofing'
+    ? ["กันซึมดาดฟ้า", "ซ่อมรอยรั่ว", "ช่างกันซึมภูเก็ต"]
     : ["รีโนเวทบ้าน", "ปรับปรุงอาคาร", "รับเหมาภูเก็ต"];
 
   return {
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: { service_name: str
 }
 
 
-export  default async  function ServiceDetailPage({ params }: { params: { service_name: string } }) {
+export default async function ServiceDetailPage({ params }: { params: { service_name: string } }) {
   // ดึงข้อมูลตาม Params (ในที่นี้ทำตัวอย่างเป็น 'waterproofing')
   const { service_name } = await params
   const service = serviceData[service_name] || serviceData['waterproofing'];
@@ -43,7 +43,7 @@ export  default async  function ServiceDetailPage({ params }: { params: { servic
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative h-[400px] flex items-center bg-slate-900">
+      <section className="relative h-[200px] md:h-[450px] flex items-center bg-slate-900">
         <div className="absolute inset-0 opacity-40">
           <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
         </div>
@@ -59,7 +59,7 @@ export  default async  function ServiceDetailPage({ params }: { params: { servic
 
       <main className="max-w-6xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          
+
           {/* Content Left */}
           <div className="lg:col-span-8 space-y-12">
             <section className="space-y-6">
@@ -102,16 +102,20 @@ export  default async  function ServiceDetailPage({ params }: { params: { servic
               <p className="text-sm text-slate-500 mb-8">
                 ประเมินราคาเบื้องต้นและปรึกษาหน้างานฟรีโดยทีมช่างมืออาชีพในภูเก็ต
               </p>
-              
+
+              <img src="/line.jpg" 
+              className='rounded-xl shadow mb-4'
+              alt="line qrcode" />
+
               <div className="space-y-4">
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="w-full flex rounded-full justify-center items-center py-4 bg-blue-800 text-white text-xs font-bold uppercase tracking-widest hover:bg-slate-900 transition-all"
                 >
                   ส่งข้อความสอบถาม
                 </Link>
-                <a 
-                  href="tel:0809699965" 
+                <a
+                  href="tel:0809699965"
                   className="w-full flex rounded-full justify-center items-center py-4 border border-slate-200 text-slate-900 text-xs font-bold uppercase tracking-widest hover:bg-slate-50 transition-all gap-2"
                 >
                   <Phone className="size-3" /> 080-969-9965
@@ -132,7 +136,43 @@ export  default async  function ServiceDetailPage({ params }: { params: { servic
           </div>
 
         </div>
+
+
+
       </main>
+
+     {service.faqs && <section className="pt-12 container-x max-w-6xl border-t mb-12 border-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 mb-8">คำถามที่พบบ่อย (FAQ)</h2>
+        <div className="space-y-4">
+          {service.faqs && service.faqs.map((faq: any, idx: number) => (
+            <details
+              key={idx}
+              className="group border border-slate-200 rounded-lg bg-white overflow-hidden transition-all"
+            >
+              <summary className="flex items-center justify-between p-5 cursor-pointer list-none hover:bg-slate-50">
+                <span className="font-medium text-slate-900 pr-4">{faq.question}</span>
+                <div className="text-blue-800 transition-transform group-open:rotate-180">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20" height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </div>
+              </summary>
+              <div className="px-5 pb-5 text-slate-600 leading-relaxed text-sm border-t border-slate-50 pt-4">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>}
 
       {/* 4. Related Service Link */}
       <section className="bg-slate-50 py-16 px-6">

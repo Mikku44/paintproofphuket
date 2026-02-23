@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { APP_MENU, SERVICES } from '../const/app';
+import { BsLine } from 'react-icons/bs';
 
 
 const CONTACT_INFO = [
@@ -156,16 +157,29 @@ export default function Footer() {
               ))}
             </div>
 
-            <div className="mt-6 pt-6 border-t border-slate-100">
-              <a 
-                href="https://www.facebook.com/Waterproofphuket"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#1877F2] hover:bg-[#166fe5] text-white text-sm font-medium rounded transition-colors"
-              >
-                <Facebook className="size-4" />
-                ติดตามเราบน Facebook
-              </a>
+            <div className="">
+              <div className="mt-6 pt-6 border-t border-slate-100">
+                <a
+                  href="https://www.facebook.com/Waterproofphuket"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#1877F2] hover:bg-[#166fe5] text-white text-sm font-medium rounded transition-colors"
+                >
+                  <Facebook className="size-4" />
+                  ติดตามเราบน Facebook
+                </a>
+              </div>
+              <div className="pt-6 border-t border-slate-100">
+                <a
+                  href="https://line.me/ti/p/VSm3MrqeEr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded transition-colors"
+                >
+                  <BsLine  className="size-4" />
+                  ติดต่อเราผ่าน Line
+                </a>
+              </div>
             </div>
           </div>
 

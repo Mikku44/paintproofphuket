@@ -1,6 +1,7 @@
 import { Facebook, Mail, Phone } from 'lucide-react';
 import FacebookPage from '../components/FacebookPage';
 import ContactForm from './components/ContactForm';
+import { BsLine } from 'react-icons/bs';
 
 const contactLinks = [
   {
@@ -21,6 +22,13 @@ const contactLinks = [
     href: "tel:0809699965",
     label: "080-969-9965",
   },
+   {
+      name: "Line",
+      icon: <BsLine  className="size-5" />,
+      href: "https://line.me/ti/p/VSm3MrqeEr",
+      color: "bg-green-500",
+      label: "PaintProof บน Line"
+    },
 ];
 export const metadata = {
   title: "ติดต่อเรา | Paintproof Phuket บริการกันซึมและซ่อมรอยแตกร้าว ภูเก็ต",
