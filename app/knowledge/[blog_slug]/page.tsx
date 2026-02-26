@@ -153,7 +153,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ blo
         <div className="prose-custom">
           {content}
         </div>
-        <SocialShare title={post.title} />
+        {/* <SocialShare title={post.title} /> */}
       </div>
     </article>
   );

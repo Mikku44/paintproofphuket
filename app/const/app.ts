@@ -14,6 +14,7 @@ export const APP_MENU = [
     ],
   },
 
+  { label: "ผลงานที่ผ่านมา", href: "/ourwork" },
   { label: "สาระน่ารู้", href: "/knowledge" },
   { label: "เกี่ยวกับเรา", href: "/about" },
   { label: "ติดต่อเรา", href: "/contact" },

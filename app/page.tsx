@@ -2,6 +2,7 @@ import Link from "next/link";
 import ImageCarousel from "./components/ImageCarousel";
 import { HOME_IMAGES, serviceImage } from "./const/app";
 import { ArrowRight, ShieldCheck, CheckCircle2, MapPin } from "lucide-react";
+import { serviceData } from "./repositories/servicesData";
 
 // ข้อมูลบริการสำหรับ Grid
 
@@ -195,6 +196,40 @@ export default async function Home() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="pt-12 w-full container-x max-w-6xl border-t mb-12 border-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 mb-8">คำถามที่พบบ่อย (FAQ)</h2>
+        <div className="space-y-4">
+          {Object.entries(serviceData).map(([key, value]) => (value as any).faqs || []).flat().map((faq: any, idx: number) => (
+            <details
+              key={idx}
+              className="group border border-slate-200 rounded-lg bg-white overflow-hidden transition-all"
+            >
+              <summary className="flex items-center justify-between p-5 cursor-pointer list-none hover:bg-slate-50">
+                <span className="font-medium text-slate-900 pr-4">{faq.question}</span>
+                <div className="text-blue-800 transition-transform group-open:rotate-180">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20" height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </div>
+              </summary>
+              <div className="px-5 pb-5 text-slate-600 leading-relaxed text-sm border-t border-slate-50 pt-4">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
         </div>
       </section>
 

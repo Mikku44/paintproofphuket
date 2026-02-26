@@ -30,13 +30,13 @@ export default function FacebookPage() {
         onLoad={renderFB}
       />
 
-      <div className="w-full flex justify-center overflow-hidden bg-slate-50 py-4 rounded-sm">
+      <div className="w-full flex p-2 overflow-hidden bg-slate-50 py-4 rounded-sm">
         <div id="fb-root"></div>
         
         {/* 2. สำคัญ: ต้องระบุ Key เพื่อให้ React บังคับ Re-render เมื่อจำเป็น */}
         <div 
           key="fb-page"
-          className="fb-page" 
+          className="fb-page w-full" 
           data-href="https://www.facebook.com/Waterproofphuket" 
           data-tabs="timeline" 
           data-width="500" // ลองใส่ตัวเลขแน่นอนไปก่อน
