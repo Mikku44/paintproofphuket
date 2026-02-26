@@ -8,7 +8,7 @@ export default function ProjectGallery({ images }: { images: string[] }) {
   return (
     <>
       <section className="px-6 pb-24 max-w-7xl mx-auto">
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div className="columns-2 md:columns-2 lg:columns-3 gap-4 space-y-4">
           {images.map((img, index) => (
             <div 
               key={index} 
@@ -17,6 +17,7 @@ export default function ProjectGallery({ images }: { images: string[] }) {
             >
               <img 
                 src={img} 
+                loading='lazy'
                 alt={`Project detail ${index}`} 
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
               />

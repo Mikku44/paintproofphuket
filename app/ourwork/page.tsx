@@ -50,7 +50,7 @@ export default function PortfolioPage() {
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
             {projects.map((project) => (
-              <div key={project.id} className="group cursor-pointer">
+              <Link href={`/ourwork/${project.slug}`} key={project.id} className="group cursor-pointer">
                 {/* Image Container */}
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 rounded-sm shadow-sm">
                   <img
@@ -83,7 +83,7 @@ export default function PortfolioPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           

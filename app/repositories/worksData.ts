@@ -9,12 +9,17 @@ export const projects = [
         image: "/images/portfolio/wyndam (11).jpg",
         description: "ระบบกันซึมดาดฟ้าและสระว่ายน้ำแบบครบวงจร",
         images: [
-            "/images/banner.jpg",
-            "/images/banner2.jpg",
-            "/images/banner3.jpg",
-            "/images/banner4.jpg",
-            "/images/banner5.jpg",
-            "/images/2.jpg",
+            "/images/portfolio/wyndam (1).jpg",
+            "/images/portfolio/wyndam (2).jpg",
+            "/images/portfolio/wyndam (3).jpg",
+            "/images/portfolio/wyndam (4).jpg",
+            "/images/portfolio/wyndam (5).jpg",
+            "/images/portfolio/wyndam (6).jpg",
+            "/images/portfolio/wyndam (7).jpg",
+            "/images/portfolio/wyndam (8).jpg",
+            "/images/portfolio/wyndam (9).jpg",
+            "/images/portfolio/wyndam (10).jpg",
+           
         ]
     },
     {
@@ -27,12 +32,13 @@ export const projects = [
         image: "/images/portfolio/jasica (1).jpg",
         description: "ปรับปรุงโฉมอาคารเก่าให้ทันสมัยพร้อมระบบกันความร้อน",
         images: [
-            "/images/banner.jpg",
-            "/images/banner2.jpg",
-            "/images/banner3.jpg",
-            "/images/banner4.jpg",
-            "/images/banner5.jpg",
-            "/images/2.jpg",
+            "/images/portfolio/jasica (1).jpg",
+            "/images/portfolio/jasica (2).jpg",
+            "/images/portfolio/jasica (3).jpg",
+            "/images/portfolio/jasica (4).jpg",
+            "/images/portfolio/jasica (5).jpg",
+            "/images/portfolio/jasica (6).jpg",
+           
         ]
     },
 
