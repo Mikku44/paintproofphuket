@@ -111,7 +111,7 @@ export default function ContactPage() {
               </h2>
               <div className="aspect-video w-full border border-slate-200 grayscale-[0.3] hover:grayscale-0 transition-all duration-700 rounded-sm overflow-hidden shadow-sm">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.28548123!2d98.284410!3d7.880447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x305031fd2d6380a3%3A0x8dd35920cf97791!2z4Lig4Li54LmA4LiB4LmH4LiV!5e0!3m2!1sth!2sth!4v1710000000000" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.385804607537!2d98.3541212!3d7.854629600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30502f2efd4679d3%3A0x35a0fa6074f50d04!2z4Lia4Lij4Li04Lip4Lix4LiXIOC5gOC4nuC5h-C4meC4l-C5jOC4nuC4o-C4ueC4nyDguIjguLPguIHguLHguJQgfCBQQUlOVFBST09GIENPLiwgTFRELg!5e0!3m2!1sth!2sth!4v1772079545264!5m2!1sth!2sth" 
                   className="w-full h-full border-0"
                   loading="lazy"
                   title="Google Maps"
@@ -132,3 +132,5 @@ export default function ContactPage() {
     </div>
   );
 }
+
+
