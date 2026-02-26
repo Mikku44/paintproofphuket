@@ -28,7 +28,7 @@ export const projects = [
         slug: "jessica-clinic-phuket",
         location: "Mueang , Phuket",
         category: "Renovation",
-         date  : "2023-08-15",
+         date  : "2025-06-11",
         image: "/images/portfolio/jasica (1).jpg",
         description: "ปรับปรุงโฉมอาคารเก่าให้ทันสมัยพร้อมระบบกันความร้อน",
         images: [
